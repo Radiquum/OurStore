@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}categories{% endblock %}</h1>
+  <h1>{% block title %}{{ j['list'][0].get('category') }}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
     {% for i in j['list'] %}
-        <div>{{ i['title'] }}</div>
+        <div> <img src="{{ i['icon'] }}/small"> | {{ i['title'] }} | <a href="{{ i['install_path'] }}" download="{{ i['app_id'] }}.apk">download</a></div>
         <br>
     {% endfor %}
 {% endblock %}
