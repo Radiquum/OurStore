@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}categories{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    {% for i in j['categories'] %}
+        <div>{{ i['title'] }}
+        <a href="{{ HOST_URL }}/category/{{ i['id'] }}">GO-TO</a></div>
+        <br>
+    {% endfor %}
+{% endblock %}

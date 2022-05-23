@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}categories{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    {% for i in j['list'] %}
+        <div>{{ i['title'] }}</div>
+        <br>
+    {% endfor %}
+{% endblock %}
