@@ -2,11 +2,38 @@
 
 {% block header %}
   <h1>{% block title %}{{ j['list'][0].get('category') }}{% endblock %}</h1>
+  <noscript><p>JavaScript is necessary for download to work</p></noscript>
 {% endblock %}
 
 {% block content %}
+
+<script>
+
+  function dwnl() {
+
+    const link = document.createElement('a');
+                    link.href = "/download";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+  }
+
+
+</script>
+
     {% for i in j['list'] %}
-        <div> <img src="{{ i['icon'] }}/small"> | {{ i['title'] }} | <a href="{{ i['install_path'] }}" download="{{ i['app_id'] }}.apk">download</a></div>
+
+        <div> <img src="{{ i['icon'] }}/small"> {{ i['title'] }} 
+        <a href="{{ HOST_URL}}/app/{{ i['id'] }}"> About </a>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
         <br>
     {% endfor %}
 {% endblock %}
+
+<!-- download(url = '{{ i['release']['install_path'] }}', name = '{{ i['app_id'] }}.apk') -->

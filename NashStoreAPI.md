@@ -33,9 +33,15 @@ Responce:
 
 METHOD: GET
 
+APPLICATIONS: 
+
 URL: "https://store.nashstore.ru/api/mobile/v1/selections/applications"
 
 2ndURL: "https://store.nashstore.ru/api/mobile/v1/categories/application"
+
+GAMES:
+
+URL: "https://store.nashstore.ru/api/mobile/v1/categories/game"
 
 <details> 
 <summary>Responce:</summary>
@@ -493,9 +499,15 @@ URL: "https://store.nashstore.ru/api/mobile/v1/selections/applications"
 
 ### Goto category
 
+APPLICATIONS:
+
 METHOD: GET
 
 URL: "https://store.nashstore.ru/api/mobile/v1/categories/application/categoryID?page="
+
+GAMES:
+
+URL: "https://store.nashstore.ru/api/mobile/v1/categories/game/categoryID?page="
 
 <details>
 <summary>Responce: </summary>
@@ -1571,6 +1583,9 @@ URL: "https://store.nashstore.ru/api/mobile/v1/apps/search?page=1&search=&type=g
 
 </details>
 
+## Go To Application
+
+https://store.nashstore.ru/api/mobile/v1/application/appidhash
 ## Main page
 
 METHOD: GET

@@ -1,11 +1,12 @@
 <!doctype html>
-<title>{% block title %}{% endblock %} - Flaskr</title>
+<title>{% block title %}{% endblock %} - OurStore</title>
 <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
 <nav>
-  <h1>Flaskr</h1>
+  <h1>OurStore</h1>
   <ul>
       <li><a href="/">home</a>
       <li><a href="{{ url_for('categories') }}">categories</a>
+      <li><a href="{{ url_for('game_categories') }}">games</a>
   </ul>
 </nav>
 <section class="content">
