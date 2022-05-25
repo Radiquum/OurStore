@@ -1,17 +1,42 @@
 <!doctype html>
+
+<head>
+<!-- ### TITLE ### -->
+
 <title>{% block title %}{% endblock %} - OurStore</title>
-<!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+
+<!-- ### GENERAL CSS ### -->
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+
+<!-- ### PAGE CSS ### -->
+
+{% block css %}
+{% endblock %}
+
+<!-- ### WIEVPORT + FAVICON ### -->
+
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<!-- ### NAVIGATION ### -->
 <nav>
-  <h1>OurStore</h1>
-  <ul>
-      <li><a href="/">home</a>
-      <li><a href="{{ url_for('categories') }}">categories</a>
-      <li><a href="{{ url_for('game_categories') }}">games</a>
-  </ul>
+  <h1 class="logo">OurStore</h1>
+  <div class="links">
+      <a href="/">home</a>
+      <a href="{{ url_for('categories') }}">categories</a>
+      <a href="{{ url_for('game_categories') }}">games</a>
+  </div>
 </nav>
+
+<!-- ### PAGE CONTENT ### -->
 <section class="content">
   <header>
     {% block header %}{% endblock %}
   </header>
   {% block content %}{% endblock %}
 </section>
+</body>

@@ -1,8 +1,31 @@
 {% extends 'base.html' %}
 
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
 {% block header %}
-  <h1>{% block title %}{% endblock %}</h1>
+  <h1>{% block title %}home{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
+<div class="index">
+  <div class="github">
+    <img src="/static/GitHub-Mark-120px-plus.png" class="ghlogo" style="width: 4rem; display: block; margin-bottom: 2rem;">
+    <img src="https://img.shields.io/github/last-commit/radiquum/ourstore?style=for-the-badge">
+    <img src="https://img.shields.io/github/workflow/status/radiquum/ourstore/Deploy?label=Deploy&style=for-the-badge">
+    <img alt="CodeFactor Grade" src="https://img.shields.io/codefactor/grade/github/radiquum/ourstore?style=for-the-badge">
+    <img src="https://img.shields.io/github/license/radiquum/ourstore?style=for-the-badge">
+    <a href="https://github.com/radiquum/ourstore"><img src="https://img.shields.io/badge/Repo-OurStore-green?style=for-the-badge&logo=github"></a>
+  </div>
+  <div class="badges">
+    <h2 style="font-size: 4rem; display: block; margin-bottom: 2rem;">badges</h2>
+    <img src="https://forthebadge.com/images/badges/uses-html.svg">
+    <img src="https://forthebadge.com/images/badges/uses-css.svg">
+    <img src="https://forthebadge.com/images/badges/uses-badges.svg">
+    <img src="https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg">
+    <!-- <img src="https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fourstoree.herokuapp.com%2F"> -->
+  </div>
+</div>
+
 {% endblock %}

@@ -7,7 +7,7 @@
 {% block content %}
     {% for i in j['categories'] %}
         <div>{{ i['title'] }}
-        <a href="{{ HOST_URL }}/category/{{ i['id'] }}">GO-TO</a></div>
+        <a href="/category/{{ i['id'] }}">GO-TO</a></div>
         <br>
     {% endfor %}
 {% endblock %}

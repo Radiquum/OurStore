@@ -6,34 +6,11 @@
 {% endblock %}
 
 {% block content %}
-
-<script>
-
-  function dwnl() {
-
-    const link = document.createElement('a');
-                    link.href = "/download";
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-
-  }
-
-
-</script>
-
     {% for i in j['list'] %}
 
         <div> <img src="{{ i['icon'] }}/small"> {{ i['title'] }} 
-        <a href="{{ HOST_URL}}/app/{{ i['id'] }}"> About </a>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
+        <a href="/app/{{ i['id'] }}"> About </a>
         </div>
         <br>
     {% endfor %}
 {% endblock %}
-
-<!-- download(url = '{{ i['release']['install_path'] }}', name = '{{ i['app_id'] }}.apk') -->

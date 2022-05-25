@@ -3,3 +3,4 @@ __pycache__
 OurStore
 localhost.direct.*
 cache/*.apk
+ignore

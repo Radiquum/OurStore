@@ -1,0 +1,33 @@
+/* #### RESET #### */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* #### FONTS #### */
+
+@font-face {
+  font-family: "Snowstorm";
+  src: url( "/static/fonts/Snowstorm.otf" );
+}
+
+/* #### COLORS #### */
+
+:root {
+    --nav-main-bg-color: #F57C73;
+    --nav-logo-bg-color: #F68C70;
+    --nav-text-color: #fff;
+    --nav-link-hover-color: #fcef74;
+    --page-header-text-color: #F7747B;
+  }
+
+/* #### PAGE HEADER #### */
+
+header {
+  text-align: center;
+  font-family: "Snowstorm";
+  font-size: 3rem;
+  padding: 1rem;
+  color: var(--page-header-text-color);
+}
