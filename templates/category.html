@@ -8,7 +8,7 @@
 {% block content %}
     {% for i in j['list'] %}
 
-        <div> <img src="{{ i['icon'] }}/original" width="100px"> {{ i['title'] }} 
+        <div> <img loading="lazy" src="{{ i['icon'] }}/original" width="100px"> {{ i['title'] }} 
         <a href="/app/{{ i['id'] }}"> About </a>
         </div>
         <br>

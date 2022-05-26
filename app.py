@@ -10,14 +10,16 @@ app = Flask(__name__)
 
 global headers
 headers = {
-            "content-type": "application/json",
-            'User-Agent': 'nashstore',
-            'Connection': 'keep-alive'
-        }   
+    "content-type": "application/json",
+    'User-Agent': 'nashstore',
+}   
 
 ## FUNCTIONS ##
 
 def api(url):
+    if not url.lower().startswith('http'):
+        return str("Not a valid url")
+    
     httprequest = Request(url, method="GET", headers=headers)
     with urlopen(httprequest) as response:
         try:
@@ -25,12 +27,6 @@ def api(url):
         except json.JSONDecodeError:
             jsonbody = ""
     return jsonbody
-    
-## API KINDA ###
-
-@app.route("/version")
-def version():
-    return api("https://store.nashstore.ru/api/v1/nashstore/version")
 
 ### WEB KINDA ###
 
@@ -65,8 +61,8 @@ def apk (id=None):
 
 @app.route("/download")
 def download():
-    url  = "https://cdnb.nashstore.ru/store/install/" + request.args.get('url', None)
-    name  = request.args.get('name', None)
+    url = "https://cdnb.nashstore.ru/store/install/" + request.args.get('url', None)
+    name = request.args.get('name', None)
     http = urllib3.PoolManager()
     try:
         return send_file("cache/" + name, as_attachment=True)

@@ -1,6 +1,6 @@
 /* #### NAV #### */
 
-nav {
+nav{
     display: flex;
     flex-direction: row;
     background-color: var(--nav-main-bg-color);
@@ -23,20 +23,71 @@ nav {
     display: flex;
     width: 100%;
     justify-content: right;
-    margin: auto auto;
     font-size: 1.5rem;
+    position: absolute;
+    top: .2rem;
+    right: .5rem;
+    font-family: "Snowstorm";
 }
 
 .links a {
-    margin: 0 .25em;
     text-decoration: none;
     color: var(--nav-text-color);
+    padding: 1rem;
+    transition: all 0.5s;
 }
 
 .links a:where(:hover, :focus) {
-    color: var(--nav-link-hover-color)
+    color: var(--nav-link-hover-color);
+    background-color: var(--nav-link-hover-bg-color);
 }
 
-.links:last-child {
-    margin-right: 1em;
+/* #### MENU #### */
+
+.menu {
+    margin: 0.75rem 1rem;
+    position:absolute;
+    right: 0;
+    display: none;
+    cursor: pointer;
 }
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/* #### FOR MOBILE #### */
+
+@media screen and (max-width: 600px) {
+
+    .links {
+        display: none;
+        flex-direction: column;
+        margin-top: 3.5rem;
+        right: 0;
+        align-items: center;
+        background-color: var(--nav-main-bg-color-opacity);
+        width: min-content;
+        backdrop-filter: blur(5px);
+    }
+
+    .menu {display: block;}
+}
+
+/* #### probably it's reeeaalllyy bad code #### */

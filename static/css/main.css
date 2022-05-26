@@ -16,9 +16,11 @@
 
 :root {
     --nav-main-bg-color: #F57C73;
+    --nav-main-bg-color-opacity: rgba(245, 124, 115, 0.8);
     --nav-logo-bg-color: #F68C70;
     --nav-text-color: #fff;
     --nav-link-hover-color: #fcef74;
+    --nav-link-hover-bg-color: #F68C70;
     --page-header-text-color: #F7747B;
   }
 

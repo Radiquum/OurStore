@@ -1,6 +1,5 @@
 .index {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
 }
 
 .github {
@@ -18,3 +17,12 @@
 }
 
 img:where(.badges, .github, :not(.ghlogo)) {margin: 0.5rem;}
+
+/* #### FOR MOBILE #### */
+
+@media screen and (max-width: 600px) {
+    .badges {
+        grid-row: 2;
+        grid-column: 1;
+    }
+}

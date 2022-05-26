@@ -24,14 +24,29 @@
 <body>
 <!-- ### NAVIGATION ### -->
 <nav>
-  <h1 class="logo">OurStore</h1>
-  <div class="links">
-      <a href="/">home</a>
-      <a href="{{ url_for('categories') }}">categories</a>
-      <a href="{{ url_for('game_categories') }}">games</a>
+  <a href="/" style="text-decoration: none;"><h1 class="logo">OurStore</h1></a>
+  <div class="menu" onclick="changeicon(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
   </div>
 </nav>
-
+<div class="links" id="links">
+  <a href="/">home</a>
+  <a href="{{ url_for('categories') }}">applications</a>
+  <a href="{{ url_for('game_categories') }}">games</a>
+</div>
+<script>
+function changeicon(x) {
+  x.classList.toggle("change");
+  show_menu()
+}
+let show = 1
+function show_menu() {
+  if (show == 1) {document.getElementById('links').style.display="flex"; show = 0}
+  else {document.getElementById('links').style.display="none"; show = 1}
+}
+</script>
 <!-- ### PAGE CONTENT ### -->
 <section class="content">
   <header>
