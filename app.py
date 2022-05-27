@@ -11,7 +11,8 @@ app = Flask(__name__)
 global headers
 headers = {
     "content-type": "application/json",
-    'User-Agent': 'nashstore',
+    "User-Agent": "nashstore",
+    "connection": "close"
 }   
 
 ## FUNCTIONS ##
@@ -34,25 +35,25 @@ def api(url):
 def index():
     return render_template('index.html')
 
-@app.route("/categories")
-def categories():
+@app.route("/applications")
+@app.route("/applications/<id>")
+def applications(id=None):
+    if (id != None):
+        j = api("https://store.nashstore.ru/api/mobile/v1/categories/application/" + id)
+        return render_template("category.html", j = j)
+    
     j = api("https://store.nashstore.ru/api/mobile/v1/categories/application")
     return render_template("app_categories.html", j = j)
-    
-@app.route("/category/<id>")
-def category(id=None):
-    j = api("https://store.nashstore.ru/api/mobile/v1/categories/application/" + id)
-    return render_template("category.html", j = j)
 
 @app.route("/games")
-def game_categories():
+@app.route("/games/<id>")
+def games(id=None):
+    if (id != None):
+        j = api("https://store.nashstore.ru/api/mobile/v1/categories/game/" + id)
+        return render_template("category.html", j = j)
+    
     j = api("https://store.nashstore.ru/api/mobile/v1/categories/game")
     return render_template("game_categories.html", j = j)
-    
-@app.route("/game_category/<id>")
-def game_category(id=None):
-    j = api("https://store.nashstore.ru/api/mobile/v1/categories/game/" + id)
-    return render_template("category.html", j = j)
 
 @app.route("/app/<id>")
 def apk (id=None):

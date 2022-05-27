@@ -1,0 +1,53 @@
+.index {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card {
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem;
+    padding: 1.45rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    font-family: Snowstorm;
+    background-color: var(--card-main-bg-color);
+    color: var(--card-text-color);
+}
+
+.card h1 {
+    font-size: 1.75em;
+}
+
+.card a {
+    font-size: 1.25em;
+    text-decoration: none;
+    padding: 1rem;
+    margin-top: 1rem;
+    transition: color 0.5s, background-color 0.5s;
+    color: var(--card-text-color);
+}
+
+.card a:where(:hover, :focus) {
+    color: var(--nav-link-hover-color);
+    background-color: var(--nav-link-hover-bg-color);
+}
+
+@media screen and (max-width: 600px) {
+
+    .index {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: min(100% - 4rem, 400px);
+        height: 5rem;
+        margin-top: .1em;
+        margin-inline: auto;
+    }
+}

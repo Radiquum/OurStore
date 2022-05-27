@@ -15,14 +15,13 @@ nav{
     padding-inline: 1.5rem;
     padding-block: 1rem;
     font-size: 2rem;
+    z-index: 1;
 }
 
 /* #### LINKS #### */
 
 .links {
     display: flex;
-    width: 100%;
-    justify-content: right;
     font-size: 1.5rem;
     position: absolute;
     top: .2rem;
@@ -34,7 +33,7 @@ nav{
     text-decoration: none;
     color: var(--nav-text-color);
     padding: 1rem;
-    transition: all 0.5s;
+    transition: color 0.5s, background-color 0.5s;
 }
 
 .links a:where(:hover, :focus) {
@@ -55,7 +54,7 @@ nav{
 .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
-    background-color: #fff;
+    background-color: var(--nav-text-color);
     margin: 6px 0;
     transition: 0.4s;
 }
@@ -77,17 +76,24 @@ nav{
 @media screen and (max-width: 600px) {
 
     .links {
-        display: none;
         flex-direction: column;
         margin-top: 3.5rem;
-        right: 0;
+        right: -25rem;
         align-items: center;
         background-color: var(--nav-main-bg-color-opacity);
-        width: min-content;
         backdrop-filter: blur(5px);
+        transition: all 0.5s;
+        overflow-x: hidden;
+        width: 0%;
+    }
+
+    .links.active {
+        width: 50%;
+        right: 0;
     }
 
     .menu {display: block;}
+
 }
 
 /* #### probably it's reeeaalllyy bad code #### */

@@ -24,28 +24,25 @@
 <body>
 <!-- ### NAVIGATION ### -->
 <nav>
-  <a href="/" style="text-decoration: none;"><h1 class="logo">OurStore</h1></a>
-  <div class="menu" onclick="changeicon(this)">
+  <a href="/" style="text-decoration: none;" class="logo">OurStore</a>
+  <div class="menu">
     <div class="bar1"></div>
     <div class="bar2"></div>
     <div class="bar3"></div>
   </div>
 </nav>
-<div class="links" id="links">
-  <a href="/">home</a>
-  <a href="{{ url_for('categories') }}">applications</a>
-  <a href="{{ url_for('game_categories') }}">games</a>
+<div class="links">
+  <a href="/">главная</a>
+  <a href="{{ url_for('applications') }}">приложения</a>
+  <a href="{{ url_for('games') }}">игры</a>
 </div>
 <script>
-function changeicon(x) {
-  x.classList.toggle("change");
-  show_menu()
-}
-let show = 1
-function show_menu() {
-  if (show == 1) {document.getElementById('links').style.display="flex"; show = 0}
-  else {document.getElementById('links').style.display="none"; show = 1}
-}
+const togglebutton = document.getElementsByClassName("menu")[0]
+const links = document.getElementsByClassName("links")[0]
+togglebutton.addEventListener('click', () => {
+  links.classList.toggle('active')
+  togglebutton.classList.toggle("change");
+})
 </script>
 <!-- ### PAGE CONTENT ### -->
 <section class="content">

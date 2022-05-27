@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Application categories{% endblock %}</h1>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/categories.css') }}">
+  <h1>{% block title %}Категории приложений{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
+<div class="index">
     {% for i in j['categories'] %}
-        <div>{{ i['title'] }}
-        <a href="/category/{{ i['id'] }}">GO-TO</a></div>
-        <br>
+        <div class="card">
+          <h1>{{ i['title'] }}</h1>
+          <a href="applications/{{ i['id'] }}">Перейти</a>
+        </div>
     {% endfor %}
+</div>
 {% endblock %}

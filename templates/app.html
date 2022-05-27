@@ -2,32 +2,29 @@
 
 {% block header %}
   <h1>{% block title %}{{ j['app'].get('title') }}{% endblock %}</h1>
+  <noscript><p>JavaScript is necessary for download to work</p></noscript>
 {% endblock %}
 
 {% block content %}
-        <script>
+<script>
 
-          var url = "{{ j['app']['release']['install_path'] }}";
-          url = url.split('#').pop().split('?').pop();
-          var page = url.substring(url.lastIndexOf('/') + 1);
+  var url = "{{ j['app']['release']['install_path'] }}";
+  url = url.split('#').pop().split('?').pop();
+  var page = url.substring(url.lastIndexOf('/') + 1);
+  function dwnl() {
+    const link = document.createElement('a');
+                    link.href = "/download?url=" + page + "&name={{ j['app'].get('title') }}.apk";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+  }
+</script>
 
-          function dwnl() {
-
-            const link = document.createElement('a');
-                            link.href = "/download?url=" + page + "&name={{ j['app'].get('title') }}.apk";
-                            document.body.appendChild(link);
-                            link.click();
-                            document.body.removeChild(link);
-
-}
-
-        </script>
-
-        <div> <img src="{{ j['app'].get('icon') }}/original"> {{ j['title'] }} 
-          <br>
-          <button onclick="dwnl()">Download</a>
-          <br>
-        </div>
-        <br>
+<div> <img src="{{ j['app'].get('icon') }}/original"> {{ j['title'] }} 
+  <br>
+  <button onclick="dwnl()">Скачать</a>
+  <br>
+</div>
+<br>
 
 {% endblock %}

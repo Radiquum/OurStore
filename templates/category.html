@@ -2,14 +2,13 @@
 
 {% block header %}
   <h1>{% block title %}{{ j['list'][0].get('category') }}{% endblock %}</h1>
-  <noscript><p>JavaScript is necessary for download to work</p></noscript>
 {% endblock %}
 
 {% block content %}
     {% for i in j['list'] %}
 
         <div> <img loading="lazy" src="{{ i['icon'] }}/original" width="100px"> {{ i['title'] }} 
-        <a href="/app/{{ i['id'] }}"> About </a>
+        <a href="/app/{{ i['id'] }}"> Подробнее </a>
         </div>
         <br>
     {% endfor %}

@@ -22,6 +22,8 @@
     --nav-link-hover-color: #fcef74;
     --nav-link-hover-bg-color: #F68C70;
     --page-header-text-color: #F7747B;
+    --card-main-bg-color: #F57C73;
+    --card-text-color: #fff;
   }
 
 /* #### PAGE HEADER #### */
@@ -32,4 +34,10 @@ header {
   font-size: 3rem;
   padding: 1rem;
   color: var(--page-header-text-color);
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    font-size: 2rem;
+  }
 }
