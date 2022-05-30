@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
 
 {% block header %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/categories.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/category.css') }}">
   <h1>{% block title %}{{ j['list'][0].get('category') }}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
+<div class="index">
     {% for i in j['list'] %}
-
-        <div> <img loading="lazy" src="{{ i['icon'] }}/original" width="100px"> {{ i['title'] }} 
+    <div class="card">
+        <img src="{{ i['icon'] }}/original" loading="lazy" alt="{{ i['title'] }}"> 
+        <h3>{{ i['title'] }}</h3>
         <a href="/app/{{ i['id'] }}"> Подробнее </a>
-        </div>
-        <br>
+      </div>
     {% endfor %}
+</div>
 {% endblock %}

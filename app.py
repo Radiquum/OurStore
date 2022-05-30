@@ -1,6 +1,6 @@
 import json
 import shutil
-from flask import Flask, redirect, render_template, send_file, request
+from flask import Flask, render_template, send_file, request
 import urllib3
 from urllib.request import Request, urlopen
 
@@ -33,32 +33,34 @@ def api(url):
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('index.html', page="")
 
 @app.route("/applications")
 @app.route("/applications/<id>")
 def applications(id=None):
     if (id != None):
         j = api("https://store.nashstore.ru/api/mobile/v1/categories/application/" + id)
-        return render_template("category.html", j = j)
+        return render_template("category.html", j = j, page="applications/" + id)
     
     j = api("https://store.nashstore.ru/api/mobile/v1/categories/application")
-    return render_template("app_categories.html", j = j)
+    return render_template("app_categories.html", j = j, page="applications")
 
 @app.route("/games")
 @app.route("/games/<id>")
 def games(id=None):
     if (id != None):
         j = api("https://store.nashstore.ru/api/mobile/v1/categories/game/" + id)
-        return render_template("category.html", j = j)
+        return render_template("category.html", j = j, page="games/" + id)
     
     j = api("https://store.nashstore.ru/api/mobile/v1/categories/game")
-    return render_template("game_categories.html", j = j)
+    return render_template("game_categories.html", j = j, page="games")
 
 @app.route("/app/<id>")
 def apk (id=None):
     j = api("https://store.nashstore.ru/api/mobile/v1/application/" + id)
-    return render_template("app.html", j = j)
+    s = json.dumps(j['app']['screens'])
+    s = json.loads(s)
+    return render_template("app.html", j = j, s=s, page="app/" + id)
 
 @app.route("/download")
 def download():

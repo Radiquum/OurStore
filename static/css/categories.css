@@ -6,10 +6,10 @@
 }
 
 .card {
-    width: 10rem;
-    height: 10rem;
+    width: 15rem;
+    height: 15rem;
     margin: 1rem;
-    padding: 1.45rem;
+    padding: .5rem;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -17,6 +17,7 @@
     font-family: Snowstorm;
     background-color: var(--card-main-bg-color);
     color: var(--card-text-color);
+    transition: all 0.5s;
 }
 
 .card h1 {
@@ -24,15 +25,17 @@
 }
 
 .card a {
-    font-size: 1.25em;
+    position: absolute;
+    width: 15rem;
+    height: 15rem;
     text-decoration: none;
-    padding: 1rem;
-    margin-top: 1rem;
-    transition: color 0.5s, background-color 0.5s;
-    color: var(--card-text-color);
+    z-index: 10;
+    background-color: #FFF;
+    opacity: 0;
+    filter: alpha(opacity=1);
 }
 
-.card a:where(:hover, :focus) {
+.card:hover{
     color: var(--nav-link-hover-color);
     background-color: var(--nav-link-hover-bg-color);
 }
@@ -46,8 +49,17 @@
 
     .card {
         width: min(100% - 4rem, 400px);
-        height: 5rem;
+        height: 6rem;
         margin-top: .1em;
+        padding: 1.25rem;
+        margin-inline: auto;
+    }
+
+    .card a {
+        width: min(100% - 4rem, 400px);
+        height: 6rem;
+        margin-top: .1em;
+        padding: 1.25rem;
         margin-inline: auto;
     }
 }
