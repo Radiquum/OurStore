@@ -1,6 +1,7 @@
 import json
 import shutil
-from flask import Flask, redirect, render_template, send_file, request
+from urllib.error import HTTPError
+from flask import Flask, redirect, render_template, send_file, request, abort
 import urllib3
 from urllib.request import Request, urlopen
 
@@ -21,12 +22,15 @@ def api(url):
     if not url.lower().startswith('http'):
         return str("Not a valid url")
     
-    httprequest = Request(url, method="GET", headers=headers)
-    with urlopen(httprequest) as response:
-        try:
+    try:
+        httprequest = Request(url, method="GET", headers=headers)
+        with urlopen(httprequest) as response:
             jsonbody = json.load(response)
-        except json.JSONDecodeError:
-            jsonbody = ""
+    except json.JSONDecodeError:
+        abort(404, description="Resource not found")
+    except HTTPError:
+        abort(400, description="Bad request")
+            
     return jsonbody
     
 def download(url, name):
@@ -83,3 +87,22 @@ def get_application ():
         return download(url, name)
     except TypeError:
         return str('Not a valid download URL')
+    
+### SOME ERROR HANDLING ###
+
+@app.errorhandler(400)
+def bad_request(e):
+    return render_template('error.html', code="400", description="Bad Request"), 400
+
+@app.errorhandler(403)
+def forbidden(e):
+    return render_template('error.html', code="403", description="Forbidden"), 403
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status, this is what it catches
+    return render_template('error.html', code="404", description="Not Found"), 404 
+
+@app.errorhandler(500)
+def server_error(e):
+    return render_template('error.html', code="500", description="Internal Server Error"), 500

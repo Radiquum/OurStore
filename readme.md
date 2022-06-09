@@ -1,6 +1,6 @@
 # OurStore
 
-(W. I. P.) Unofficial web client for NashStore.ru 
+(mostly done) Unofficial web client for NashStore.ru
 
 ![Last commit](https://img.shields.io/github/last-commit/radiquum/ourstore?style=for-the-badge)
 ![Deploy](https://img.shields.io/github/workflow/status/radiquum/ourstore/Deploy?label=Deploy&style=for-the-badge)
@@ -13,18 +13,16 @@
 - [X] Fetch and display app & game categories
 - [X] Downloading applications
 - [ ] Search by applications
-- [ ] Nice looking UI
+- [X] Nice looking UI
 - [ ] Bug free
 
 ## Local development
 
 1. install python 3.10
 2. install requirements.txt
-3. download [localhost.direct certificate](http://get.localhost.direct)
-4. place localhost.direct.crt and .key to folder with app.py
-5. edit your hosts file, to point localhost.direct to 127.0.0.1
-6. flask run --cert localhost.direct.crt --key localhost.direct.key --host 127.0.0.1 --port (yourport)
-7. you can now access it by typing "https://localhost.direct:(yourport)" in the browser
+3. run flask app
+4. open link in browser
+5. PROFIT!!!
 
 ## Deployment on heroku
 

@@ -13,10 +13,6 @@
     align-items: center;
 }
 
-#name {
-    margin-block: auto;
-}
-
 #name h1, h2, p {
     text-align: left;
     font-family: "Snowstorm";
@@ -64,9 +60,6 @@
     background-color: var(--card-main-bg-color);
 }
 
-#support {
-margin-top: -4rem;
-}
 #support p {
     font-size: 1.25rem;
 }
@@ -92,6 +85,7 @@ margin-top: -4rem;
 
 #name {
     grid-area: name;
+    margin-block: auto;
 }
 
 #icon {
@@ -113,6 +107,7 @@ margin-top: -4rem;
 }
 
 #support {
+    margin-top: -4rem;
     grid-area: support;
 }
 /* ## MOBILE ## */
@@ -140,3 +135,5 @@ margin-top: -4rem;
     }
 
 }
+
+/* ## probably this needs a "rewrite" ## */
