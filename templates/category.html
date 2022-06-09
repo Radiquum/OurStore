@@ -3,17 +3,15 @@
 {% block header %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/categories.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/category.css') }}">
-  <h1>{% block title %}{{ j['list'][0].get('category') }}{% endblock %}</h1>
+  <h1>{% block title %}{{ title }}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-<div class="index">
-    {% for i in j['list'] %}
-    <div class="card">
-        <img src="{{ i['icon'] }}/original" loading="lazy" alt="{{ i['title'] }}"> 
-        <h3>{{ i['title'] }}</h3>
-        <a href="/app/{{ i['id'] }}"> Подробнее </a>
-      </div>
-    {% endfor %}
-</div>
+  {% for i in j['list'] %}
+  <div class="card">
+      <img src="{{ i['icon'] }}/original" loading="lazy" alt="{{ i['title'] }}"> 
+      <h3>{{ i['title'] }}</h3>
+      <a href="/application/{{ i['id'] }}"> Подробнее </a>
+    </div>
+  {% endfor %}
 {% endblock %}

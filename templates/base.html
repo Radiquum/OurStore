@@ -3,26 +3,28 @@
 <head>
 <!-- ### TITLE ### -->
 
-<title>{% block title %}{% endblock %} - OurStore</title>
-<meta name="title" content="OurStore">
-<meta name="description" content="Unofficial web client for NashStore">
+<title>{% block title %}{% endblock %} - OurStore </title>
+<meta name="title" content="{{title}} - OurStore" />
+<meta name="description" content="{{description}}" />
 
 <!-- ### SITE PREVIEW ### -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="OurStore">
-<meta property="og:title" content="OurStore">
-<meta property="og:description" content="Unofficial web client for NashStore">
-<meta property="og:url" content="https://ourstoree.herokuapp.com/{{ page }}">
+
+<!-- ### OpenGraph ### -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="OurStore" />
+<meta property="og:title" content="{{title}} - OurStore" />
+<meta property="og:description" content="{{description}}" />
+<meta property="og:url" content="https://ourstoree.herokuapp.com/{{ page }}" />
 <meta property="og:locale" content="ru_RU">
-<meta property="twitter:title" content="OurStore">
-<meta property="twitter:description" content="Unofficial web client for NashStore">
-<meta property="twitter:url" content="https://ourstoree.herokuapp.com/{{ page }}">
-<meta name="twitter:domain" content="ourstoree.herokuapp.com">
+<meta property="og:image" content="{{image}}" />
+
+<!-- ### twitter ### -->
+<meta name="twitter:card" content="summary" />
 
 <!-- ### GENERAL CSS ### -->
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}" />
 
 <!-- ### PAGE CSS ### -->
 
@@ -31,8 +33,8 @@
 
 <!-- ### OTHER ### -->
 
-<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
 <body>
@@ -44,15 +46,15 @@
     <div class="bar2"></div>
     <div class="bar3"></div>
   </div>
+  <div class="menu_items">
+    <a href="/">главная</a>
+    <a href="{{ url_for('applications') }}">приложения</a>
+    <a href="{{ url_for('games') }}">игры</a>
+  </div>
 </nav>
-<div class="links">
-  <a href="/">главная</a>
-  <a href="{{ url_for('applications') }}">приложения</a>
-  <a href="{{ url_for('games') }}">игры</a>
-</div>
 <script>
 const togglebutton = document.getElementsByClassName("menu")[0]
-const links = document.getElementsByClassName("links")[0]
+const links = document.getElementsByClassName("menu_items")[0]
 togglebutton.addEventListener('click', () => {
   links.classList.toggle('active')
   togglebutton.classList.toggle("change");
@@ -63,7 +65,9 @@ togglebutton.addEventListener('click', () => {
   <header>
     {% block header %}{% endblock %}
   </header>
-  {% block content %}{% endblock %}
+  <div class="index">
+    {% block content %}{% endblock %}
+  </div>
 </section>
 </body>
 </html>

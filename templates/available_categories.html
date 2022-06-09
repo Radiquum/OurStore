@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/categories.css') }}">
+  <h1>{% block title %}{{title}}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% for i in j['categories'] %}
+      <div class="card">
+        <h1>{{ i['title'] }}</h1>
+        <a href="{{ page }}/{{ i['id'] }}">Перейти</a>
+      </div>
+  {% endfor %}
+{% endblock %}

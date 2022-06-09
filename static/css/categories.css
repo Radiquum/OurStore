@@ -48,18 +48,16 @@
     }
 
     .card {
-        width: min(100% - 4rem, 400px);
+        width: min(100% - 4rem, 500px);
         height: 6rem;
         margin-top: .1em;
-        padding: 1.25rem;
         margin-inline: auto;
     }
 
     .card a {
-        width: min(100% - 4rem, 400px);
+        width: min(100% - 4rem, 500px);
         height: 6rem;
         margin-top: .1em;
-        padding: 1.25rem;
         margin-inline: auto;
     }
 }
