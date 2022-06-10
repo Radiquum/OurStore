@@ -7,11 +7,13 @@
 {% endblock %}
 
 {% block content %}
-  {% for i in j['list'] %}
-  <div class="card">
-      <img src="{{ i['icon'] }}/original" loading="lazy" alt="{{ i['title'] }}"> 
-      <h3>{{ i['title'] }}</h3>
-      <a href="/application/{{ i['id'] }}"> Подробнее </a>
-    </div>
-  {% endfor %}
+<categories>
+{% for i in j['list'] %}
+<div class="card">
+    <img src="{{ i['icon'] }}/original" loading="lazy" alt="{{ i['title'] }}"> 
+    <h3>{{ i['title'] }}</h3>
+    <a href="/application/{{ i['id'] }}"> Подробнее </a>
+  </div>
+{% endfor %}
+</categories>
 {% endblock %}

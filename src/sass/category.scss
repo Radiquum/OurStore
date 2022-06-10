@@ -1,0 +1,48 @@
+/* #### CATEGORY #### */
+
+categories {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+
+    .card {
+        width: 15rem;
+        height: 15rem;
+        padding: .5rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: $card-bg-color;
+        color: $card-text-color;
+        transition: all 0.5s;
+    }
+    
+    .card h1 {
+        font-size: 1.75em;
+    }
+    
+    .card a {
+        position: absolute;
+        width: 15rem;
+        height: 15rem;
+        background-color: #FFF;
+        opacity: 0;
+        filter: alpha(opacity=1);
+    }
+    
+    .card:hover{
+        color: $card-hover-text-color;
+        background-color: $card-hover-bg-color;
+    }
+
+    .card img {
+        background-color: white;
+        width: 100px;
+    }
+
+}

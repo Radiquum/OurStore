@@ -1,17 +1,13 @@
 {% extends 'base.html' %}
 
-{% block css %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-{% endblock %}
-
 {% block header %}
   <h1>{% block title %}{{title}}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-
+<index>
 <div class="github">
-  <img loading="lazy" alt="" src="/static/GitHub-Mark-120px-plus.png" class="ghlogo" style="width: 4rem; display: block; margin-bottom: 2rem;">
+  <img loading="lazy" alt="" src="/static/GitHub-Mark-120px-plus.png" class="ghlogo">
   <img loading="lazy" alt="GitHub last commit" src="https://img.shields.io/github/last-commit/radiquum/ourstore?style=for-the-badge">
   <img loading="lazy" alt="GitHub deploy workflow" src="https://img.shields.io/github/workflow/status/radiquum/ourstore/Deploy?label=Deploy&style=for-the-badge">
   <a href="https://www.codefactor.io/repository/github/radiquum/ourstore"><img loading="lazy" alt="CodeFactor grade" src="https://img.shields.io/codefactor/grade/github/radiquum/ourstore?style=for-the-badge"></a>
@@ -30,5 +26,5 @@
 <div class="description">
   <p>{{description}}</p>
 </div>
-
+</index>
 {% endblock %}

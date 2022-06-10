@@ -1,0 +1,35 @@
+/* #### RESET #### */
+*{
+    margin: 0;
+    padding: 0;
+  }
+
+/* #### FONTS #### */
+@font-face {
+    font-family: "Snowstorm";
+    src: url( "/static/fonts/Snowstorm.otf" );
+}
+
+html {
+    font-family: "Snowstorm";
+}
+
+@import "colors.scss";
+@import "nav.scss";
+
+section {
+    header {
+        text-align: center;
+        font-size: 3rem;
+        padding: 1rem;
+        color: $page-header-text-color;
+    }
+}
+
+@import "index.scss";
+@import "category.scss";
+@import "application.scss";
+
+@import "mobile.scss";
+
+/* PLEASE: make changes only in .scss files, NOT directly in .css files, then compile .scss to .css. Instructions available at: https://sass-lang.com/ */

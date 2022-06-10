@@ -1,0 +1,93 @@
+/* #### NAVIGATION #### */
+nav {
+    display: flex;
+    background-color: $nav-bg-color;
+
+    .logo {
+        padding: 1.5rem;
+        font-size: 2rem;
+        font-weight: 800;
+        color: $nav-fg-color;
+        background-color: $nav-logo-bg-color;
+        text-decoration: none;
+    }
+
+    .menu_items {
+        display: flex;
+        position: absolute;
+        right: 0;
+        font-size: 1.75rem;
+        overflow: hidden;
+        animation-duration: 1s;
+        z-index: 1;
+        a {
+            text-decoration: none;
+            color: $nav-text-color;
+            padding: 1.5rem;
+            transition: color 0.5s, background-color 0.5s;
+        }
+
+        a:where(:hover, :focus) {
+            color: $nav-fg-color;
+        }
+
+    }
+
+    .menu_items.active {
+            animation-name: slidein;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        padding: 1.5rem;
+        cursor: pointer;
+    }
+    .menu:where(:hover, :focus)> .bar1, .menu:where(:hover, :focus)> .bar2, .menu:where(:hover, :focus)> .bar3{
+        background-color: $nav-fg-color;
+    }
+    .bar1, .bar2, .bar3 {
+        width: 40px;
+        height: 5px;
+        background-color: $nav-text-color;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    .change .bar2 {
+        opacity: 0;
+    }
+    .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+}
+
+@keyframes slidein {
+    from {
+        right: -25rem;
+        width: 0%;
+      }
+    
+      to {
+        right: 0;
+        width: auto;
+      }
+  
+}
+
+@keyframes slideout {
+    from {
+        right: 0;
+        width: auto;
+      }
+    
+      to {
+        right: -25rem;
+        width: 0%;
+      }
+}

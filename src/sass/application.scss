@@ -1,0 +1,92 @@
+/* #### APPLICATION #### */
+application {
+
+    display: grid;
+    grid-template: 
+        "image name" 256px
+        "shdescription shdescription" min-content
+        "download download" 1rem  
+        "screenshots screenshots" min-content
+        "description description" min-content 
+        "support null" min-content/ 256px auto;
+    column-gap: 2rem;
+    row-gap: 4rem;
+    padding: 2rem;
+    align-items: center;
+
+    #icon {
+        grid-area: image;
+        img {width: 256px;}
+    }
+
+    #name {
+        color: $app-text-color;
+        grid-area: name;
+        margin-block: auto;
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 1.25rem;
+        }
+
+    }
+
+    #short_description {
+        font-size: 1.75rem;
+        color: $app-text-color;
+        grid-area: shdescription;
+    }
+    
+    #description {
+        margin-block: 2rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+        grid-area: description;
+        p {
+            max-height: 512px;
+            font-size: 1.25rem;
+            color: $app-text-color;
+        }
+    } 
+
+    #screenshots {
+        grid-area: screenshots;
+        img {width: 256px;}
+    }
+    .swiper {
+        width: 100%;
+        height: min(100% + 4rem, 512px);
+    }
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #download{
+        grid-area: download;
+        button {
+            width: min(100% - 2rem, 300px);
+            height: 4rem;
+            font-size: 2rem;
+            font-family: "Snowstorm";
+            color: $app-button-text-color;
+            background-color: $app-button-bg-color;
+        }
+    }
+    
+    #support{
+        margin-top: -4rem;
+        font-size: 1.25rem;
+        grid-area: support;
+        p {color: $app-text-color;}
+    }
+
+}

@@ -1,43 +1,330 @@
 /* #### RESET #### */
-
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
 /* #### FONTS #### */
-
 @font-face {
   font-family: "Snowstorm";
-  src: url( "/static/fonts/Snowstorm.otf" );
+  src: url("/static/fonts/Snowstorm.otf");
+}
+html {
+  font-family: "Snowstorm";
 }
 
-/* #### COLORS #### */
+/* #### NAVIGATION #### */
+nav {
+  display: flex;
+  background-color: red;
+}
+nav .logo {
+  padding: 1.5rem;
+  font-size: 2rem;
+  font-weight: 800;
+  color: yellow;
+  background-color: black;
+  text-decoration: none;
+}
+nav .menu_items {
+  display: flex;
+  position: absolute;
+  right: 0;
+  font-size: 1.75rem;
+  overflow: hidden;
+  animation-duration: 1s;
+  z-index: 1;
+}
+nav .menu_items a {
+  text-decoration: none;
+  color: white;
+  padding: 1.5rem;
+  transition: color 0.5s, background-color 0.5s;
+}
+nav .menu_items a:where(:hover, :focus) {
+  color: yellow;
+}
+nav .menu_items.active {
+  animation-name: slidein;
+}
+nav .menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+nav .menu:where(:hover, :focus) > .bar1, nav .menu:where(:hover, :focus) > .bar2, nav .menu:where(:hover, :focus) > .bar3 {
+  background-color: yellow;
+}
+nav .bar1, nav .bar2, nav .bar3 {
+  width: 40px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+nav .change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+nav .change .bar2 {
+  opacity: 0;
+}
+nav .change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
 
-:root {
-    --nav-main-bg-color: #F57C73;
-    --nav-main-bg-color-opacity: rgba(245, 124, 115, 0.8);
-    --nav-logo-bg-color: #F68C70;
-    --nav-text-color: #fff;
-    --nav-link-hover-color: #fcef74;
-    --nav-link-hover-bg-color: #F68C70;
-    --page-header-text-color: #F7747B;
-    --card-main-bg-color: #F57C73;
-    --card-text-color: #fff;
+@keyframes slidein {
+  from {
+    right: -25rem;
+    width: 0%;
   }
-
-/* #### PAGE HEADER #### */
-
-header {
+  to {
+    right: 0;
+    width: auto;
+  }
+}
+@keyframes slideout {
+  from {
+    right: 0;
+    width: auto;
+  }
+  to {
+    right: -25rem;
+    width: 0%;
+  }
+}
+section header {
   text-align: center;
-  font-family: "Snowstorm";
   font-size: 3rem;
   padding: 1rem;
-  color: var(--page-header-text-color);
+  color: orange;
 }
 
+/* #### INDEX #### */
+section index {
+  display: grid;
+}
+section index .github {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+section index .github .ghlogo {
+  width: 100px;
+}
+section index .badges {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  align-items: center;
+  gap: 0.75rem;
+}
+section index .description {
+  text-align: center;
+  margin: 1.75rem;
+  font-size: 1.5rem;
+  color: darkred;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+/* #### CATEGORY #### */
+categories {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+categories .card {
+  width: 15rem;
+  height: 15rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: red;
+  color: white;
+  transition: all 0.5s;
+}
+categories .card h1 {
+  font-size: 1.75em;
+}
+categories .card a {
+  position: absolute;
+  width: 15rem;
+  height: 15rem;
+  background-color: #FFF;
+  opacity: 0;
+  filter: alpha(opacity=1);
+}
+categories .card:hover {
+  color: yellow;
+  background-color: darkred;
+}
+categories .card img {
+  background-color: white;
+  width: 100px;
+}
+
+/* #### APPLICATION #### */
+application {
+  display: grid;
+  grid-template: "image name" 256px "shdescription shdescription" min-content "download download" 1rem "screenshots screenshots" min-content "description description" min-content "support null" min-content/256px auto;
+  column-gap: 2rem;
+  row-gap: 4rem;
+  padding: 2rem;
+  align-items: center;
+}
+application #icon {
+  grid-area: image;
+}
+application #icon img {
+  width: 256px;
+}
+application #name {
+  color: red;
+  grid-area: name;
+  margin-block: auto;
+}
+application #name h1 {
+  font-size: 3rem;
+}
+application #name h2 {
+  font-size: 1.5rem;
+}
+application #name p {
+  font-size: 1.25rem;
+}
+application #short_description {
+  font-size: 1.75rem;
+  color: red;
+  grid-area: shdescription;
+}
+application #description {
+  margin-block: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  grid-area: description;
+}
+application #description p {
+  max-height: 512px;
+  font-size: 1.25rem;
+  color: red;
+}
+application #screenshots {
+  grid-area: screenshots;
+}
+application #screenshots img {
+  width: 256px;
+}
+application .swiper {
+  width: 100%;
+  height: min(100% + 4rem, 512px);
+}
+application .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+application #download {
+  grid-area: download;
+}
+application #download button {
+  width: min(100% - 2rem, 300px);
+  height: 4rem;
+  font-size: 2rem;
+  font-family: "Snowstorm";
+  color: yellow;
+  background-color: red;
+}
+application #support {
+  margin-top: -4rem;
+  font-size: 1.25rem;
+  grid-area: support;
+}
+application #support p {
+  color: red;
+}
+
+/* MOBILE */
 @media screen and (max-width: 600px) {
-  header {
+  nav .menu_items {
+    flex-direction: column;
+    background-color: black;
+    margin-top: 5.2rem;
+    right: -25rem;
+    animation-name: slideout;
+    width: 0;
+  }
+  nav .menu_items.active {
+    right: 0;
+    width: auto;
+  }
+  nav .menu {
+    display: block;
+  }
+
+  section header {
     font-size: 2rem;
   }
+  section index .badges {
+    grid-column: 1;
+    grid-row: 3;
+    padding-bottom: 2rem;
+  }
+  section index .description {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  section categories {
+    flex-direction: column;
+    align-items: center;
+  }
+  section categories .card {
+    width: min(100% - 4rem, 500px);
+    height: 6rem;
+    margin-top: 0.1em;
+    margin-inline: auto;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  section categories .card a {
+    width: min(100% - 4rem, 500px);
+    height: 6rem;
+    margin-top: 0.1em;
+    margin-inline: auto;
+  }
+  section categories:last-child {
+    padding-bottom: 2rem;
+  }
+  section application {
+    margin-top: -5rem;
+    grid-template-columns: 128px auto;
+  }
+  section application #icon img {
+    width: 128px;
+  }
+  section application #name h1 {
+    font-size: 1.5rem;
+  }
+  section application #name h2 {
+    font-size: 1rem;
+  }
+  section application #name p {
+    font-size: 1rem;
+  }
+  section application #short_description {
+    margin-top: -5rem;
+  }
 }
+/* PLEASE: make changes only in .scss files, NOT directly in .css files, then compile .scss to .css. Instructions available at: https://sass-lang.com/ */
+
+/*# sourceMappingURL=main.css.map */

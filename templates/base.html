@@ -22,14 +22,7 @@
 <meta name="twitter:card" content="summary" />
 
 <!-- ### GENERAL CSS ### -->
-
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
-<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}" />
-
-<!-- ### PAGE CSS ### -->
-
-{% block css %}
-{% endblock %}
 
 <!-- ### OTHER ### -->
 
@@ -40,7 +33,7 @@
 <body>
 <!-- ### NAVIGATION ### -->
 <nav>
-  <a href="/" style="text-decoration: none;" class="logo">OurStore</a>
+  <a href="/" class="logo">OurStore</a>
   <div class="menu">
     <div class="bar1"></div>
     <div class="bar2"></div>
@@ -61,13 +54,11 @@ togglebutton.addEventListener('click', () => {
 })
 </script>
 <!-- ### PAGE CONTENT ### -->
-<section class="content">
+<section>
   <header>
     {% block header %}{% endblock %}
   </header>
-  <div class="index">
     {% block content %}{% endblock %}
-  </div>
 </section>
 </body>
 </html>

@@ -2,7 +2,6 @@
 
 {% block header %}
   <h1 style="display: none;">{% block title %}{{title}}{% endblock %}</h1>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/application.css') }}"/>
   <noscript><p>JavaScript is necessary for download to work</p></noscript>
 
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
@@ -26,6 +25,7 @@
  };
 </script>
 
+<application>
 <div id="icon">
   <img src="{{ image }}"/>
 </div>
@@ -63,10 +63,10 @@
 </div>
 
 <div id="download">
-  <button onclick="dwnl()">Получить </a>
+  <button onclick="dwnl()">Загрузить</a>
 </div>
 
-<div id="description" class="description">
+<div id="description">
   <p> Описание: {{ j['app'].get('description') }}</p>
 </div>
 
@@ -76,6 +76,7 @@
   <p> приватность: <a href="{{ j['app']['support'].get('privacy') }}">{{ j['app']['support'].get('privacy') }}</a></p>
   
 </div>
+</application>
 
 <script>
 const swiper = new Swiper('.swiper', {
