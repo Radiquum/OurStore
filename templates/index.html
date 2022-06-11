@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}{{title}}{% endblock %}</h1>
+  <h1>{% block title %}{{page.title}}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
@@ -24,7 +24,7 @@
   <img loading="lazy" src="https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg">
 </div>
 <div class="description">
-  <p>{{description}}</p>
+  <p>{{page.description}}</p>
 </div>
 </index>
 {% endblock %}

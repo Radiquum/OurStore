@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1 style="display: none;">{% block title %}{{title}}{% endblock %}</h1>
+  <h1 style="display: none;">{% block title %}{{page.title}}{% endblock %}</h1>
   <noscript><p>JavaScript is necessary for download to work</p></noscript>
 
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
@@ -14,11 +14,11 @@
 
   var url = "{{ j['app']['release']['install_path'] }}";
   url = url.split('#').pop().split('?').pop();
-  var page = url.substring(url.lastIndexOf('/') + 1);
+  var url = url.substring(url.lastIndexOf('/') + 1);
   var name = encodeURIComponent("{{j['app'].get('title')}}")
   function dwnl() {
     const link = document.createElement('a');
-                    link.href = "/download?url=" + page + "&name=" + name + ".apk";
+                    link.href = "/download?url=" + url + "&name=" + name + ".apk";
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
@@ -27,17 +27,17 @@
 
 <application>
 <div id="icon">
-  <img src="{{ image }}"/>
+  <img src="{{ page.image }}"/>
 </div>
 
 <div id="name">
-  <h1>{{ title }}</h1>
+  <h1>{{ page.title }}</h1>
   <h2>{{ j['app']['developer'].get('title') }}</h2>
   <p>{{ j['app']['release'].get('version_name') }}</p>
 </div>
 
 <div id="short_description">
-  <p>{{description}}</p>
+  <p>{{page.description}}</p>
   <p>
     <span>{{ j['app']['info'].get('size') }} |</span>
     <span>{{ j['app']['info'].get('rating') }}⭐ |</span>

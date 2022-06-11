@@ -4,19 +4,19 @@
 <!-- ### TITLE ### -->
 
 <title>{% block title %}{% endblock %} - OurStore </title>
-<meta name="title" content="{{title}} - OurStore" />
-<meta name="description" content="{{description}}" />
+<meta name="title" content="{{page.title}} - OurStore" />
+<meta name="description" content="{{page.description}}" />
 
 <!-- ### SITE PREVIEW ### -->
 
 <!-- ### OpenGraph ### -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="OurStore" />
-<meta property="og:title" content="{{title}} - OurStore" />
-<meta property="og:description" content="{{description}}" />
-<meta property="og:url" content="https://ourstoree.herokuapp.com/{{ page }}" />
+<meta property="og:title" content="{{page.title}} - OurStore" />
+<meta property="og:description" content="{{page.description}}" />
+<meta property="og:url" content="https://ourstoree.herokuapp.com/{{page.page}}" />
 <meta property="og:locale" content="ru_RU">
-<meta property="og:image" content="{{image}}" />
+<meta property="og:image" content="{{page.image}}" />
 
 <!-- ### twitter ### -->
 <meta name="twitter:card" content="summary" />
