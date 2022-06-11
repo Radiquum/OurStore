@@ -1,90 +1,90 @@
 /* MOBILE */
 @media screen and (max-width: 600px) {
-
-    nav {
-            .menu_items {
-                flex-direction: column;
-                background-color: $nav-logo-bg-color;
-                margin-top: 5.2rem;
-                right: -25rem;
-                animation-name: slideout;  
-                width: 0;
-            }
-            .menu_items.active {
-                right: 0;
-                width: auto;
-            }
-            .menu {
-                display: block;
-            }
-        }
-    
-    section {
-        header {
-            font-size: 2rem;
-        }
-
-        index {
-            .badges {
-                grid-column: 1;
-                grid-row: 3;
-                padding-bottom: 2rem;
-            }
-        
-            .description {
-                grid-column: 1;
-                grid-row: 2;
-            }
-        }
-
-        categories {
-            flex-direction: column;
-            align-items: center;
-
-            .card {
-                width: min(100% - 4rem, 500px);
-                height: 6rem;
-                margin-top: .1em;
-                margin-inline: auto;
-                flex-direction: row;
-                justify-content: space-between;
-            }
-        
-            .card a {
-                width: min(100% - 4rem, 500px);
-                height: 6rem;
-                margin-top: .1em;
-                margin-inline: auto;
-            }
-
-        }
-
-        application {
-            margin-top: -5rem;
-            grid-template-columns: 128px auto;
-
-            #icon img {
-                width: 128px;
-            }
-
-            #name {
-                h1 {
-                    font-size: 1.5rem;
-                }
-
-                h2 {
-                    font-size: 1rem;
-                }
-
-                p {
-                    font-size: 1rem;
-                }
-            }
-
-            #short_description {
-                margin-top: -5rem;
-            }
-        }
-
+  nav {
+    .menu_items {
+      flex-direction: column;
+      background-color: $nav-logo-bg-color;
+      margin-top: 5.2rem;
+      right: -25rem;
+      -webkit-animation-name: slideout;
+      animation-name: slideout;
+      width: 0;
     }
+
+    .menu_items.active {
+      right: 0;
+      width: auto;
+    }
+
+    .menu {
+      display: block;
+    }
+  }
+
+  section {
+    header {
+      font-size: 2rem;
+    }
+
+    index {
+      .badges {
+        grid-column: 1;
+        grid-row: 3;
+        padding-bottom: 2rem;
+      }
+
+      .description {
+        grid-column: 1;
+        grid-row: 2;
+      }
+    }
+
+    categories {
+      flex-direction: column;
+      align-items: center;
+
+      .card {
+        width: min(100% - 4rem, 500px);
+        height: 6rem;
+        margin-top: 0.1em;
+        margin-inline: auto;
+        flex-direction: row;
+        justify-content: space-between;
+
+        a {
+          width: min(100% - 4rem, 500px);
+          height: 6rem;
+          margin-top: 0.1em;
+          margin-inline: auto;
+        }
+      }
+    }
+
+    application {
+      margin-top: -5rem;
+      grid-template-columns: 128px auto;
+
+      #icon img {
+        width: 128px;
+      }
+
+      #name {
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        h2 {
+          font-size: 1rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+
+      #short_description {
+        margin-top: -5rem;
+      }
+    }
+  }
 }

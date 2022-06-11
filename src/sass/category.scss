@@ -1,52 +1,50 @@
 /* #### CATEGORY #### */
 
 categories {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
 
+  .card {
+    width: 15rem;
+    height: 15rem;
+    padding: 0.5rem;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: $card-bg-color;
+    color: $card-text-color;
+    transition: all 0.5s;
 
-    .card {
-        width: 15rem;
-        height: 15rem;
-        padding: .5rem;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        justify-content: space-evenly;
-        background-color: $card-bg-color;
-        color: $card-text-color;
-        transition: all 0.5s;
-    }
-    
-    .card h1 {
-        font-size: 1.75em;
-    }
-    
-    .card a {
-        position: absolute;
-        width: 15rem;
-        height: 15rem;
-        background-color: #FFF;
-        opacity: 0;
-        filter: alpha(opacity=1);
-    }
-    
-    .card:hover{
-        color: $card-hover-text-color;
-        background-color: $card-hover-bg-color;
+    h1 {
+      font-size: 1.75em;
     }
 
-    .card img {
-        background-color: white;
-        width: 100px;
+    a {
+      position: absolute;
+      width: 15rem;
+      height: 15rem;
+      background-color: #fff;
+      opacity: 0;
+      filter: alpha(opacity=1);
     }
 
+    img {
+      background-color: white;
+      width: 100px;
+    }
+  }
+
+  .card:hover {
+    color: $card-hover-text-color;
+    background-color: $card-hover-bg-color;
+  }
 }
 
 categories:last-child {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }

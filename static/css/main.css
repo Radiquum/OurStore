@@ -32,6 +32,7 @@ nav .menu_items {
   right: 0;
   font-size: 1.75rem;
   overflow: hidden;
+  -webkit-animation-duration: 1s;
   animation-duration: 1s;
   z-index: 1;
 }
@@ -45,6 +46,7 @@ nav .menu_items a:where(:hover, :focus) {
   color: yellow;
 }
 nav .menu_items.active {
+  -webkit-animation-name: slidein;
   animation-name: slidein;
 }
 nav .menu {
@@ -54,10 +56,14 @@ nav .menu {
   padding: 1.5rem;
   cursor: pointer;
 }
-nav .menu:where(:hover, :focus) > .bar1, nav .menu:where(:hover, :focus) > .bar2, nav .menu:where(:hover, :focus) > .bar3 {
+nav .menu:where(:hover, :focus) > .bar1,
+nav .menu:where(:hover, :focus) > .bar2,
+nav .menu:where(:hover, :focus) > .bar3 {
   background-color: yellow;
 }
-nav .bar1, nav .bar2, nav .bar3 {
+nav .bar1,
+nav .bar2,
+nav .bar3 {
   width: 40px;
   height: 5px;
   background-color: white;
@@ -65,17 +71,25 @@ nav .bar1, nav .bar2, nav .bar3 {
   transition: 0.4s;
 }
 nav .change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
   transform: rotate(-45deg) translate(-9px, 6px);
 }
 nav .change .bar2 {
   opacity: 0;
 }
 nav .change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
 
+@-webkit-keyframes slidein {
+  from {
+    right: -25rem;
+    width: 0%;
+  }
+  to {
+    right: 0;
+    width: auto;
+  }
+}
 @keyframes slidein {
   from {
     right: -25rem;
@@ -84,6 +98,16 @@ nav .change .bar3 {
   to {
     right: 0;
     width: auto;
+  }
+}
+@-webkit-keyframes slideout {
+  from {
+    right: 0;
+    width: auto;
+  }
+  to {
+    right: -25rem;
+    width: 0%;
   }
 }
 @keyframes slideout {
@@ -161,7 +185,7 @@ categories .card a {
   position: absolute;
   width: 15rem;
   height: 15rem;
-  background-color: #FFF;
+  background-color: #fff;
   opacity: 0;
   filter: alpha(opacity=1);
 }
@@ -181,7 +205,9 @@ categories:last-child {
 /* #### APPLICATION #### */
 application {
   display: grid;
+  grid-template: "image name" 256px "shdescription shdescription" -webkit-min-content "download download" 1rem "screenshots screenshots" -webkit-min-content "description description" -webkit-min-content "support null" min-content/256px auto;
   grid-template: "image name" 256px "shdescription shdescription" min-content "download download" 1rem "screenshots screenshots" min-content "description description" min-content "support null" min-content/256px auto;
+  -moz-column-gap: 2rem;
   column-gap: 2rem;
   row-gap: 4rem;
   padding: 2rem;
@@ -265,6 +291,7 @@ application #support p {
     background-color: black;
     margin-top: 5.2rem;
     right: -25rem;
+    -webkit-animation-name: slideout;
     animation-name: slideout;
     width: 0;
   }
