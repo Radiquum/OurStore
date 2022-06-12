@@ -48,18 +48,18 @@
 <div class="swiper" id="screenshots">
 
   <div class="swiper-wrapper">
-  
+
     {% for i in s %}
     <div class="swiper-slide"><img src="{{ i['path'] }}/original" class="swiper-lazy" /></div>
     {% endfor %}
-  
+
   </div>
-  
+
   <div class="swiper-pagination"></div>
-  
+
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
-      
+
 </div>
 
 <div id="download">
@@ -74,7 +74,7 @@
 
   <p> сайт: <a href="{{ j['app']['support'].get('website') }}">{{ j['app']['support'].get('website') }}</a></p>
   <p> приватность: <a href="{{ j['app']['support'].get('privacy') }}">{{ j['app']['support'].get('privacy') }}</a></p>
-  
+
 </div>
 </application>
 

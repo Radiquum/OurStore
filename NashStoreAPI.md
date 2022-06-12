@@ -20,8 +20,8 @@ Responce:
 ``` json
 
     {
-    "status": "success", 
-    "version_code": 6, 
+    "status": "success",
+    "version_code": 6,
     "version_name": "0.0.6"
     }
 
@@ -33,7 +33,7 @@ Responce:
 
 METHOD: GET
 
-APPLICATIONS: 
+APPLICATIONS:
 
 URL: "https://store.nashstore.ru/api/mobile/v1/selections/applications"
 
@@ -43,7 +43,7 @@ GAMES:
 
 URL: "https://store.nashstore.ru/api/mobile/v1/categories/game"
 
-<details> 
+<details>
 <summary>Responce:</summary>
 
 ```json
@@ -1007,7 +1007,7 @@ METHOD: GET
 
 URL: "https://store.nashstore.ru/api/mobile/v1/apps/search?page=1&search=&type=game"
 
-<details> 
+<details>
 <summary>Responce:</summary>
 
 ```json
@@ -2952,7 +2952,7 @@ URL: "https://store.nashstore.ru/api/mobile/v1/profile/mobile"
 
 REQUEST:
 
-``` json 
+``` json
     {
         "apps": {
             "org.swiftapps.swiftbackup": {
@@ -2994,6 +2994,6 @@ Responce:
         "created_at": "2022-05-22T19:01:17.907Z"
     },
     "status": "success"
-} 
+}
 
 ```
